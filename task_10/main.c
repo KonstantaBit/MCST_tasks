@@ -30,12 +30,18 @@ int main(int argc, char *argv[]) {
   printf("Enter 0 for false, 1 for true\nAfter enter a logical expression\n");
   for (int i = 0; i < cnt_pairs; ++i) {
     int temp;
-    printf("%c = ", (int)alphabet[i]);
-    scanf("%d ", &temp);
+    printf("%c = ", alphabet[i]);
+    if (i == cnt_pairs - 1) {
+      scanf("%d\n", &temp);
+    } else {
+      scanf("%d", &temp);
+    }
     struct Pair pair = {alphabet[i], temp};
     pairs[i] = pair;
   }
   char str[SIZE] = "";
+  rewind(stdin);
+  fflush(stdin);
   fgets(str, SIZE, stdin);
   printf("%s\n", str);
   char buf[SIZE] = "";
